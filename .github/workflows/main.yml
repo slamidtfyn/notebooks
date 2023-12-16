@@ -9,6 +9,7 @@ jobs:
       image: jgoldfar/pandoc-nbconvert-docker
       options: --cpus 1
     steps:
+      - uses: actions/checkout@v2
       - name: Convert notebooks
         run: (jupyter nbconvert --to html  *.ipynb --output-dir html)
       - name: Create Pull Request

@@ -19,6 +19,6 @@ jobs:
         with:
           action: upload
           app_location: html 
-          azure_static_web_apps_api_token: ${{secrets.TOKE
+          azure_static_web_apps_api_token: ${{secrets.TOKEN}}
           skip_app_build: true
                         

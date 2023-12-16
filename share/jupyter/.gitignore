@@ -1,0 +1,6 @@
+/kernels
+/lab
+/labextensions
+
+nbconvert/templates/*
+!nbconvert/templates/classic/

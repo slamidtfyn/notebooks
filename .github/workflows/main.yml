@@ -1,0 +1,22 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+jobs:
+  container-test-job:
+    runs-on: ubuntu-latest
+    container:
+      image: jgoldfar/pandoc-nbconvert-docker
+      options: --cpus 1
+    steps:
+      - name: Convert notebooks
+        run: (jupyter nbconvert --to html  *.ipynb --output-dir html)
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: Pull request with the Converted html files
+          committer: ${{github.actor}}
+          title: Convert files from .ipynb to .html 
+          body: This is an auto-generated PR
+          branch: html
+        

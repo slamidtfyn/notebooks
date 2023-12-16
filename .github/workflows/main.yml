@@ -12,12 +12,3 @@ jobs:
       - uses: actions/checkout@v2
       - name: Convert notebooks
         run: (jupyter nbconvert --to html  *.ipynb --output-dir html)
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
-        with:
-          commit-message: Pull request with the Converted html files
-          committer: ${{github.actor}} <${{github.actor}}@users.noreply.github.com>
-          title: Convert files from .ipynb to .html 
-          body: This is an auto-generated PR
-          branch: html
-        

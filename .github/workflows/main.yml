@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Convert notebooks
-        run: (jupyter nbconvert --to html  *.ipynb --output-dir html)
+        run: (jupyter nbconvert --to html --template lab --theme dark  *.ipynb --output-dir html)
       - name: Fix links
         run: (sed -i 's/\.ipynb/\.html/g' ./html/*.html)
       - name: Azure Static Web Apps Deploy
